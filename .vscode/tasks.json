@@ -1,0 +1,31 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Run Discovery Service",
+      "type": "shell",
+      "command": "mvn spring-boot:run",
+      "options": {
+        "cwd": "${workspaceFolder}/discovery-service"
+      },
+      "problemMatcher": []
+    },
+    {
+      "label": "Run User Service",
+      "type": "shell",
+      "command": "mvn spring-boot:run",
+      "options": {
+        "cwd": "${workspaceFolder}/user-service"
+      },
+      "problemMatcher": []
+    },
+    {
+      "label": "Run All Services",
+      "dependsOn": [
+        "Run Discovery Service",
+        "Run User Service"
+      ],
+      "dependsOrder": "parallel"
+    }
+  ]
+}
